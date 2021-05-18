@@ -54,9 +54,7 @@ void Dark_Souls_Macros::stanceSwaps1h(UINT attackKey)
 
 void Dark_Souls_Macros::run(bool* runing) {
 
-    input.type = INPUT_KEYBOARD;
-
-    while (runing)
+    while (*runing)
     {
         if (GetAsyncKeyState(keyBinds.qaR1)) quickAttacks(gInputs.R1);
         else if (GetAsyncKeyState(keyBinds.qaR2)) quickAttacks(gInputs.R2);

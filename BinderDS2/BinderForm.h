@@ -38,7 +38,7 @@ namespace BinderDS2 {
 
 	private: System::Windows::Forms::Button^ BindButton;
 		   std::thread* t = nullptr;
-		   bool* runing = new bool;
+		   
 
 
 

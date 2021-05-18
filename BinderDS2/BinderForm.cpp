@@ -1,15 +1,15 @@
 #include "BinderForm.h"
-
-using namespace BinderDS2;
-
-#pragma once
 #include "Dark_Souls_Macros.h"
 
 using namespace BinderDS2;
 
+#pragma once
 		
 		System::Void BinderForm::BindButton_Click(System::Object^ sender, System::EventArgs^ e)
 		{
+			static bool* runing;
+			if(runing ==nullptr) runing = new bool;
+
 			if (t != nullptr && t->joinable()) {
 				*runing = false;
 				t->join();
@@ -23,8 +23,8 @@ using namespace BinderDS2;
 
 			*runing = true;
 			Dark_Souls_Macros DSmacros = Dark_Souls_Macros(gInputs, keyBinds);
-			//t = new std::thread(&Dark_Souls_Macros::run, &DSmacros, runing);
-			std::thread thr(&Dark_Souls_Macros::run, &DSmacros, runing);
+			t = new std::thread(&Dark_Souls_Macros::run, &DSmacros, runing);
+			Sleep(15);
 		}
 
 		gameInputs BinderForm::CheckGameInputs(gameInputs inputs)
@@ -40,17 +40,17 @@ using namespace BinderDS2;
 		gameBinds BinderForm::CheckGameBinds(gameBinds binds)
 		{
 			binds.qaR1 = GetComboBoxValue(QAR1ComboBox->Text);
-			binds.qaR2 = GetComboBoxValue(QAR2ComboBox->GetItemText(QAR2ComboBox->SelectedItem));
-			binds.qaL1 = GetComboBoxValue(QAL1ComboBox->GetItemText(QAL1ComboBox->SelectedItem));
-			binds.qaL2 = GetComboBoxValue(QAL2ComboBox->GetItemText(QAL2ComboBox->SelectedItem));
-			binds.ss1hR1 = GetComboBoxValue(SS1hR1ComboBox->GetItemText(SS1hR1ComboBox->SelectedItem));
-			binds.ss1hR2 = GetComboBoxValue(SS1hR2ComboBox->GetItemText(SS1hR2ComboBox->SelectedItem));
-			binds.ss1hL1 = GetComboBoxValue(SS1hL1ComboBox->GetItemText(SS1hL1ComboBox->SelectedItem));
-			binds.ss1hL2 = GetComboBoxValue(SS1hL2ComboBox->GetItemText(SS1hL2ComboBox->SelectedItem));
-			binds.ss2hR1 = GetComboBoxValue(SS2hR1ComboBox->GetItemText(SS2hR1ComboBox->SelectedItem));
-			binds.ss2hR2 = GetComboBoxValue(SS2hR2ComboBox->GetItemText(SS2hR2ComboBox->SelectedItem));
-			binds.ss2hL1 = GetComboBoxValue(SS2hL1ComboBox->GetItemText(SS2hL1ComboBox->SelectedItem));
-			binds.ss2hL2 = GetComboBoxValue(SS2hL2ComboBox->GetItemText(SS2hL2ComboBox->SelectedItem));
+			binds.qaR2 = GetComboBoxValue(QAR2ComboBox->Text);
+			binds.qaL1 = GetComboBoxValue(QAL1ComboBox->Text);
+			binds.qaL2 = GetComboBoxValue(QAL2ComboBox->Text);
+			binds.ss1hR1 = GetComboBoxValue(SS1hR1ComboBox->Text);
+			binds.ss1hR2 = GetComboBoxValue(SS1hR2ComboBox->Text);
+			binds.ss1hL1 = GetComboBoxValue(SS1hL1ComboBox->Text);
+			binds.ss1hL2 = GetComboBoxValue(SS1hL2ComboBox->Text);
+			binds.ss2hR1 = GetComboBoxValue(SS2hR1ComboBox->Text);
+			binds.ss2hR2 = GetComboBoxValue(SS2hR2ComboBox->Text);
+			binds.ss2hL1 = GetComboBoxValue(SS2hL1ComboBox->Text);
+			binds.ss2hL2 = GetComboBoxValue(SS2hL2ComboBox->Text);
 			return binds;
 		}
 
@@ -60,7 +60,7 @@ using namespace BinderDS2;
 			{
 				SHORT key;
 				key = VkKeyScan(comboBoxValue[0]);
-				return MapVirtualKey(LOBYTE(key), 0);
+				return key;
 			}
 			else if (comboBoxValue->Length > 1)
 			{
