@@ -8,22 +8,27 @@ using namespace BinderDS2;
 		System::Void BinderForm::BindButton_Click(System::Object^ sender, System::EventArgs^ e)
 		{
 			static bool* runing;
-			if(runing ==nullptr) runing = new bool;
+			static Dark_Souls_Macros* DSmacros;
+			if (!init)
+			{
+				runing = new bool;
+				DSmacros = new Dark_Souls_Macros;
+
+				init = true;
+			}
 
 			if (t != nullptr && t->joinable()) {
 				*runing = false;
+
 				t->join();
 				delete t;
 			}
-			gameInputs gInputs;
-			gameBinds keyBinds;
-			gInputs = CheckGameInputs(gInputs);
-			keyBinds = CheckGameBinds(keyBinds);
 
+			DSmacros->setGameBinds(CheckGameBinds());
+			DSmacros->setGameInputs(CheckGameInputs());
 
 			*runing = true;
-			Dark_Souls_Macros DSmacros = Dark_Souls_Macros(gInputs, keyBinds);
-			t = new std::thread(&Dark_Souls_Macros::run, &DSmacros, runing);
+			t = new std::thread(&Dark_Souls_Macros::run, DSmacros, runing);
 			Sleep(15);
 		}
 
@@ -37,8 +42,9 @@ using namespace BinderDS2;
 				return NULL;
 		}
 
-		gameInputs BinderForm::CheckGameInputs(gameInputs inputs)
+		gameInputs BinderForm::CheckGameInputs()
 		{
+			gameInputs inputs;
 			inputs.R1 = GetComboBoxValue(R1ComboBox->Text);
 			inputs.R2 = GetComboBoxValue(R2ComboBox->Text);
 			inputs.L1 = GetComboBoxValue(L1ComboBox->Text);
@@ -47,8 +53,9 @@ using namespace BinderDS2;
 			return inputs;
 		}
 
-		gameBinds BinderForm::CheckGameBinds(gameBinds binds)
+		gameBinds BinderForm::CheckGameBinds()
 		{
+			gameBinds binds;
 			binds.qaR1 = GetComboBoxValue(QAR1ComboBox->Text);
 			binds.qaR2 = GetComboBoxValue(QAR2ComboBox->Text);
 			binds.qaL1 = GetComboBoxValue(QAL1ComboBox->Text);

@@ -1,10 +1,7 @@
 #include "Dark_Souls_Macros.h"
 
-Dark_Souls_Macros::Dark_Souls_Macros(gameInputs gInputs, gameBinds keyBinds)
-{
-    this->keyBinds = keyBinds;
-    this->gInputs = gInputs;
-}
+void Dark_Souls_Macros::setGameBinds(gameBinds keyBinds) { this->keyBinds = keyBinds; }
+void Dark_Souls_Macros::setGameInputs(gameInputs gInputs) { this->gInputs = gInputs; }
 
 void Dark_Souls_Macros::quickAttacks(CHAR attackKey)
 {

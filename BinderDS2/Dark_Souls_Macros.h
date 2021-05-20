@@ -10,7 +10,8 @@ private:
 	void stanceSwaps1h(CHAR attackKey);
 
 public:
-	Dark_Souls_Macros(gameInputs gInputs, gameBinds keyBinds);
+	void setGameInputs(gameInputs gInputs);
+	void setGameBinds(gameBinds gBinds);
 	void run(bool* runing);
 };
 

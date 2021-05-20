@@ -32,9 +32,10 @@ namespace BinderDS2 {
 	private: System::Windows::Forms::Button^ BindButton;
 		   
 	private: std::thread* t = nullptr;
-		   gameInputs CheckGameInputs(gameInputs inputs);
-		   gameBinds CheckGameBinds(gameBinds binds);
+		   gameInputs CheckGameInputs();
+		   gameBinds CheckGameBinds();
 		   CHAR GetComboBoxValue(String^ comboBoxValue);
+		   bool init;
 
 
 
