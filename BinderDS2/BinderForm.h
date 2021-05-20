@@ -10,24 +10,16 @@ namespace BinderDS2 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Сводка для BinderForm
-	/// </summary>
+
 	public ref class BinderForm : public System::Windows::Forms::Form
 	{
 	public:
 		BinderForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Освободить все используемые ресурсы.
-		/// </summary>
 		~BinderForm()
 		{
 			if (components)
@@ -36,9 +28,13 @@ namespace BinderDS2 {
 			}
 		}
 
+
 	private: System::Windows::Forms::Button^ BindButton;
-		   std::thread* t = nullptr;
 		   
+	private: std::thread* t = nullptr;
+		   gameInputs CheckGameInputs(gameInputs inputs);
+		   gameBinds CheckGameBinds(gameBinds binds);
+		   CHAR GetComboBoxValue(String^ comboBoxValue);
 
 
 
@@ -689,8 +685,5 @@ namespace BinderDS2 {
 #pragma endregion
 		private: 
 		System::Void BindButton_Click(System::Object^ sender, System::EventArgs^ e);
-		gameInputs CheckGameInputs(gameInputs inputs);
-		gameBinds CheckGameBinds(gameBinds binds);
-		UINT GetComboBoxValue(String^ comboBoxValue);
 };
 }

@@ -4,25 +4,25 @@
 
 struct gameInputs
 {
-    UINT R1;
-    UINT R2;
-    UINT L1;
-    UINT L2;
-    UINT Stance;
+    CHAR R1;
+    CHAR R2;
+    CHAR L1;
+    CHAR L2;
+    CHAR Stance;
 };
 
 struct gameBinds
 {
-    UINT qaR1;
-    UINT qaR2;
-    UINT qaL1;
-    UINT qaL2;
-    UINT ss2hR1;
-    UINT ss2hR2;
-    UINT ss2hL1;
-    UINT ss2hL2;
-    UINT ss1hR1;
-    UINT ss1hR2;
-    UINT ss1hL1;
-    UINT ss1hL2;
+    CHAR qaR1;
+    CHAR qaR2;
+    CHAR qaL1;
+    CHAR qaL2;
+    CHAR ss2hR1;
+    CHAR ss2hR2;
+    CHAR ss2hL1;
+    CHAR ss2hL2;
+    CHAR ss1hR1;
+    CHAR ss1hR2;
+    CHAR ss1hL1;
+    CHAR ss1hL2;
 };

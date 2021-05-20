@@ -5,9 +5,9 @@ class Dark_Souls_Macros : protected Macro
 {
 
 private:
-	void quickAttacks(UINT attackKey);
-	void stanceSwaps2h(UINT attackKey);
-	void stanceSwaps1h(UINT attackKey);
+	void quickAttacks(CHAR attackKey);
+	void stanceSwaps2h(CHAR attackKey);
+	void stanceSwaps1h(CHAR attackKey);
 
 public:
 	Dark_Souls_Macros(gameInputs gInputs, gameBinds keyBinds);

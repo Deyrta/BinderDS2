@@ -4,10 +4,9 @@ Dark_Souls_Macros::Dark_Souls_Macros(gameInputs gInputs, gameBinds keyBinds)
 {
     this->keyBinds = keyBinds;
     this->gInputs = gInputs;
-    this->input = { 0 };
 }
 
-void Dark_Souls_Macros::quickAttacks(UINT attackKey)
+void Dark_Souls_Macros::quickAttacks(CHAR attackKey)
 {
     pressKey(attackKey);
     Sleep(4);
@@ -22,7 +21,7 @@ void Dark_Souls_Macros::quickAttacks(UINT attackKey)
     releaseKey(gInputs.Stance);
 }
 
-void Dark_Souls_Macros::stanceSwaps2h(UINT attackKey)
+void Dark_Souls_Macros::stanceSwaps2h(CHAR attackKey)
 {
     pressKey(gInputs.Stance);
     Sleep(63);
@@ -37,7 +36,7 @@ void Dark_Souls_Macros::stanceSwaps2h(UINT attackKey)
     releaseKey(gInputs.Stance);
 }
 // ss1h need some corection in timings
-void Dark_Souls_Macros::stanceSwaps1h(UINT attackKey)
+void Dark_Souls_Macros::stanceSwaps1h(CHAR attackKey)
 {
     pressKey(gInputs.Stance);
     Sleep(49);

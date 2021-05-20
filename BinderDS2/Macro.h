@@ -4,14 +4,14 @@
 class Macro
 {
     private:
-        void keyAction(UINT key, DWORD flags);
+        void keyAction(CHAR keykeyParam, DWORD flags);
 
 protected:
     gameInputs gInputs;
     gameBinds keyBinds;
     INPUT input;
 
-    void pressKey(UINT key);
-    void releaseKey(UINT key);
+    void pressKey(CHAR key);
+    void releaseKey(CHAR key);
 };
 

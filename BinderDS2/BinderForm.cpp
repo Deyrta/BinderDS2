@@ -27,6 +27,16 @@ using namespace BinderDS2;
 			Sleep(15);
 		}
 
+		CHAR  BinderForm::GetComboBoxValue(String^ comboBoxValue)
+		{
+			if (comboBoxValue->Length == 1)
+			{
+				return toupper(comboBoxValue[0]);
+			}
+			else
+				return NULL;
+		}
+
 		gameInputs BinderForm::CheckGameInputs(gameInputs inputs)
 		{
 			inputs.R1 = GetComboBoxValue(R1ComboBox->Text);
@@ -54,33 +64,12 @@ using namespace BinderDS2;
 			return binds;
 		}
 
-		UINT BinderForm::GetComboBoxValue(String^ comboBoxValue)
-		{
-			if (comboBoxValue->Length == 1)
-			{
-				SHORT key;
-				key = VkKeyScan(comboBoxValue[0]);
-				return key;
-			}
-			else if (comboBoxValue->Length > 1)
-			{
-				if (comboBoxValue[5] == '4') // mouse 4
-					return VK_XBUTTON1;
-				else if (comboBoxValue[5] == '5') // mouse 5
-					return VK_XBUTTON2;
-				else
-					return VK_F12;
-			}
-			else
-				return VK_F12;
-		}
 
-
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
-	Application::EnableVisualStyles();
-	Application::SetCompatibleTextRenderingDefault(false);
-	Application::Run(gcnew BinderForm);
-	return 0;
-}
+		int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
+			Application::EnableVisualStyles();
+			Application::SetCompatibleTextRenderingDefault(false);
+			Application::Run(gcnew BinderForm);
+			return 0;
+		};
 
 
