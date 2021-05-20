@@ -35,8 +35,15 @@ using namespace BinderDS2;
 		CHAR  BinderForm::GetComboBoxValue(String^ comboBoxValue)
 		{
 			if (comboBoxValue->Length == 1)
-			{
 				return toupper(comboBoxValue[0]);
+			else if (comboBoxValue->Length > 1)
+			{
+				if (comboBoxValue[5] == '4') // mouse4
+					return 0x05;
+				else if (comboBoxValue[5] == '5') // mouse5
+					return 0x06;
+				else
+					return NULL;
 			}
 			else
 				return NULL;
