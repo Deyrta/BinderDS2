@@ -55,7 +55,7 @@ using namespace BinderDS2;
 			inputs.R1 = GetComboBoxValue(R1ComboBox->Text);
 			inputs.R2 = GetComboBoxValue(R2ComboBox->Text);
 			inputs.L1 = GetComboBoxValue(L1ComboBox->Text);
-			inputs.L2 = GetComboBoxValue(L1ComboBox->Text);
+			inputs.L2 = GetComboBoxValue(L2ComboBox->Text);
 			inputs.Stance = GetComboBoxValue(StanceComboBox->Text);
 			return inputs;
 		}
