@@ -14,6 +14,7 @@ Known issues:
 2. SS1h works bad, like 4-5 out of 10 times
 3. Cant bind shift, alt, ctrl or any combinations of these.
 4. keyboard list is a cringe
+5. Cant unbind keys
 
 
 If u found some issues, contact me in discord Tuhan#8790 or email me tuhan4ek@gmail.com
