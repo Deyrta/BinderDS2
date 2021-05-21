@@ -15,6 +15,6 @@ Known issues:
 3. Cant bind shift, alt, ctrl or any combinations of these.
 4. keyboard list is a cringe
 5. Cant unbind keys
-
+6. Add IBS
 
 If u found some issues, contact me in discord Tuhan#8790 or email me tuhan4ek@gmail.com
